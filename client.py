@@ -10,7 +10,7 @@ class Client(object):
 
     def run(self):
         print("calling service")
-        self.service.call("hello")
+        #self.service.send("hello")
 
 if __name__ == "__main__":
     print("starting client")

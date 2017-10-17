@@ -5,6 +5,6 @@ class Service:
         print("service initialising")
         self.endpoint = endpoint
 
-    def call(self, record):
+    def send(self, record):
         print("service @", self.endpoint, "<=", record)
 

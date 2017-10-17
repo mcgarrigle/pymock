@@ -1,15 +1,25 @@
 
+import sys
 import unittest
+from unittest.mock import Mock
 
-from mock import patch
-from service import Service
+sys.path.append(".")
+
+from client import Client
+
 
 class ClientTest(unittest.TestCase):
 
     def setUp(self):
-        self.mock_cursor = MagicMock()
-        self.test_hb = HeartBeater(self.mock_cursor, self.mock_metrics)
+        self.mock_service = Mock()
 
-    def test_service_gets_called:
-        Client().run() 
-        
+    def test_service_gets_called(self):
+        Client(self.mock_service).run() 
+        print(self.mock_service.send)
+        print(self.mock_service.send.mock_calls)
+        print(self.mock_service.mock_calls)
+        # self.mock_service.send.assert_called_once_with("hello")
+        self.mock_service.send.assert_called
+
+if __name__ == '__main__':
+    unittest.main()        
