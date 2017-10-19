@@ -4,16 +4,17 @@ from service import Service
 
 class Client(object):
 
-    def __init__(self, the_service):
+    def __init__(self, service):
         print("initialising client")
-        self.service = the_service("awesome")
+        self.service = service
 
     def run(self):
         print("calling service")
-        #self.service.send("hello")
+        self.service.send("hello")
 
 if __name__ == "__main__":
     print("starting client")
-    c = Client(Service)
+    s = Service("awesum")
+    c = Client(s)
     c.run()
     print("stopping client")
